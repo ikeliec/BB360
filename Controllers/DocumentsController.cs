@@ -52,7 +52,7 @@ namespace BB360TestBrief.Controllers
       /// <response code="200">User document uploaded successfully</response>
       /// <response code="400">If validation fails due to validation errors or application encountered an exception</response>
       [Produces("application/json")]
-      [ProducesResponseType(typeof(BaseResponse<string>), (int)HttpStatusCode.OK)]
+      [ProducesResponseType(typeof(BaseResponse<string>), (int)HttpStatusCode.Created)]
       [ProducesResponseType(typeof(ErrorResponse), (int)HttpStatusCode.BadRequest)]
       [HttpPost("Customer")]
       public async Task<IActionResult> Post([FromForm] UploadDocumentCommand command)
@@ -62,7 +62,7 @@ namespace BB360TestBrief.Controllers
          if (!response.Status)
             return BadRequest(response);
 
-         return Ok(response);
+         return Created("", response);
       }
 
       /// <summary>
