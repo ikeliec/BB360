@@ -24,7 +24,7 @@ namespace BB360TestBrief.Controllers
       /// <response code="200">authenticated user object including jwt token is returnedy</response>
       /// <response code="400">If validation fails due to validation errors or application encountered an exception</response>
       [Produces("application/json")]
-      [ProducesResponseType(typeof(BaseResponse<JsonWebToken>), (int)HttpStatusCode.Created)]
+      [ProducesResponseType(typeof(BaseResponse<JsonWebToken>), (int)HttpStatusCode.OK)]
       [ProducesResponseType(typeof(ErrorResponse), (int)HttpStatusCode.BadRequest)]
       [HttpPost("Login")]
 		public async Task<IActionResult> ZimvestSavings([FromBody] LoginCommand command)
@@ -33,7 +33,7 @@ namespace BB360TestBrief.Controllers
          if (!response.Status)
             return BadRequest(response);
 
-         return Created("", response);
+         return Ok(response);
       }
    }
 }
