@@ -49,7 +49,7 @@ namespace BB360TestBrief.Controllers
       /// </summary>
 		/// <param name="command"></param>
       /// <returns>A successful document upload message</returns>
-      /// <response code="200">User document uploaded successfully</response>
+      /// <response code="201">User document uploaded successfully</response>
       /// <response code="400">If validation fails due to validation errors or application encountered an exception</response>
       [Produces("application/json")]
       [ProducesResponseType(typeof(BaseResponse<string>), (int)HttpStatusCode.Created)]
